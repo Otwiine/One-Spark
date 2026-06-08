@@ -129,7 +129,6 @@ section {
 
 /* --- Responsive Grid / Flex Layouts --- */
 .programs-grid,
-.context-grid,
 .partners-grid,
 .involved-grid,
 .outcomes-list {
@@ -140,7 +139,6 @@ section {
 
 /* --- Cards & Blocks (30% Fill) --- */
 .program-card,
-.context-card,
 .partner-block,
 .involved-card,
 .outcome-item,
@@ -157,7 +155,6 @@ section {
 
 /* --- Interactive Hover Transformations --- */
 .program-card:hover,
-.context-card:hover,
 .partner-block:hover,
 .involved-card:hover,
 .outcome-item:hover,
@@ -476,32 +473,64 @@ section {
   }
 }
 
-/* --- Context Strip --- */
-#context-strip {
-  background-color: var(--bg-card);
+/* --- About Stats --- */
+.about-image-wrap {
+  margin-top: 2rem;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius-standard);
+  border: 1px solid var(--border-color);
 }
 
-.context-card {
+.about-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: var(--transition-smooth);
+}
+
+.about-image:hover {
+  transform: scale(1.03);
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  padding: 2rem;
   background-color: var(--bg-canvas);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-standard);
 }
 
-.context-num {
+.about-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.about-stat-num {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: 2.2rem;
   font-weight: 900;
   color: var(--accent-primary);
-  margin-bottom: 0.5rem;
+  line-height: 1.1;
 }
 
-.context-text {
+.about-stat-desc {
+  font-size: 0.75rem;
   font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.context-note {
-  font-style: italic;
-  border-left: 3px solid var(--accent-primary);
-  padding-left: 1.5rem;
-  margin-top: 3rem;
+@media (max-width: 576px) {
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* --- Programs Grid --- */
@@ -516,16 +545,6 @@ section {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-}
-
-/* Featured Program Card */
-.program-card.featured {
-  border: 2px solid var(--accent-primary);
-}
-
-.program-card.featured:hover {
-  border-color: var(--accent-secondary);
-  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.15);
 }
 
 /* --- Outcomes List --- */
@@ -919,3 +938,4 @@ section {
   transform: translateY(0);
   opacity: 1;
 }
+

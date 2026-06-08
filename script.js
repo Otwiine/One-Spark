@@ -51,7 +51,7 @@
 
   /* ---- SCROLL REVEAL ---- */
   const revealEls = document.querySelectorAll(
-    '.program-card, .outcome-item, .context-card, .involved-card, ' +
+    '.program-card, .outcome-item, .involved-card, .about-image-wrap, ' +
     '.partner-block, .budget-row:not(.header), .sustain-item, .mission-block'
   );
 
@@ -244,11 +244,6 @@
   document.querySelectorAll('.programs-grid').forEach(grid => {
     grid.querySelectorAll('.program-card').forEach((card, i) => {
       card.style.transitionDelay = `${i * 0.07}s`;
-    });
-  });
-  document.querySelectorAll('.context-grid').forEach(grid => {
-    grid.querySelectorAll('.context-card').forEach((card, i) => {
-      card.style.transitionDelay = `${i * 0.08}s`;
     });
   });
   document.querySelectorAll('.involved-grid').forEach(grid => {
