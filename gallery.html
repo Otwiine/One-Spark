@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#F97316" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — One Spark</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    .gallery-hero {
+      padding-top: 12rem;
+      padding-bottom: 5rem;
+      text-align: center;
+      background-color: var(--bg-card);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      padding: 5rem 0;
+    }
+    .gallery-item {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: var(--border-radius-standard);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-card);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .back-nav {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 1001;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="btn-outline back-nav">← Back to Home</a>
+
+  <header class="gallery-hero">
+    <div class="container">
+      <span class="section-tag">Visual Impact</span>
+      <h1 class="section-title">Vocational Training in Action</h1>
+      <p class="section-intro" style="margin: 0 auto;">A look into our mechanics workshops where youth gain practical, market-relevant skills for a sustainable future.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="gallery-grid">
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-1.jpeg" alt="Mechanics Training 1" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-2.jpeg" alt="Mechanics Training 2" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-3.jpeg" alt="Mechanics Training 3" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-4.jpeg" alt="Mechanics Training 4" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-5.jpeg" alt="Mechanics Training 5" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-6.jpeg" alt="Mechanics Training 6" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-7.jpeg" alt="Mechanics Training 7" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-8.jpeg" alt="Mechanics Training 8" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-9.jpeg" alt="Mechanics Training 9" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-10.jpeg" alt="Mechanics Training 10" /></div>
+      <div class="gallery-item reveal"><img src="Assets/Images/mech-11.jpeg" alt="Mechanics Training 11" /></div>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="container footer-bottom">
+      <p>One Spark: Future Builders Initiative &copy; 2026. Nonprofit initiative based in Uganda.</p>
+      <p class="footer-mission-line">Ignite Minds. Empower Lives. Spark Change.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
