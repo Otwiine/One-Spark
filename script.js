@@ -52,7 +52,7 @@
   /* ---- SCROLL REVEAL ---- */
   const revealEls = document.querySelectorAll(
     '.program-card, .outcome-item, .involved-card, .about-image-wrap, .sustain-image-wrap, ' +
-    '.partner-block, .budget-row:not(.header), .sustain-item, .mission-block'
+    '.partner-block, .budget-row:not(.header), .sustain-item, .mission-block, .gallery-item'
   );
 
   revealEls.forEach(el => el.classList.add('reveal'));
