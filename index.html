@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap"
     rel="stylesheet">
 </head>
 
@@ -18,29 +18,28 @@
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#top" class="nav-logo">ONE SPARK</a>
+      <a href="index.html" class="nav-logo"><img src="Assets/ONE SPARK LOGO.png" alt="One Spark" class="nav-logo-img"></a>
       <ul class="nav-links">
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#programs">Programs</a></li>
+        <li><a href="index.html" class="active">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="team.html">Team</a></li>
         <li><a href="impact.html">Impact</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="#get-involved">Get Involved</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="get-involved.html">Get Involved</a></li>
       </ul>
-      <a href="#donate" class="nav-cta">Sponsor a Student</a>
+      <a href="#" class="nav-cta" data-donate>Sponsor a Student</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="mobile-menu" id="mobile-menu">
-      <a href="#top">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#programs">Programs</a>
+      <a href="index.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="team.html">Team</a>
       <a href="impact.html">Impact</a>
       <a href="gallery.html">Gallery</a>
-      <a href="#get-involved">Get Involved</a>
-      <a href="#contact">Contact</a>
-      <a href="#donate" class="mobile-cta">Sponsor a Student</a>
+      <a href="get-involved.html">Get Involved</a>
+      <a href="#" class="mobile-cta" data-donate>Sponsor a Student</a>
     </div>
   </nav>
 
@@ -54,8 +53,8 @@
       <p class="hero-sub">Empowering vulnerable youth in Uganda through education, mentorship, vocational skills
         training, and entrepreneurship opportunities.</p>
       <div class="hero-actions">
-        <a href="#donate" class="btn-primary">Sponsor a Student</a>
-        <a href="#programs" class="btn-secondary">Our Programs</a>
+        <a href="#" class="btn-primary" data-donate>Sponsor a Student</a>
+        <a href="programs.html" class="btn-secondary">Our Programs</a>
       </div>
     </div>
 
@@ -156,82 +155,22 @@
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- WHY ONE SPARK -->
-  <section id="why-one-spark">
-    <div class="container two-col">
-      <div class="col-left">
-        <span class="section-tag">Why One Spark?</span>
-        <h2 class="section-title">Connecting youth to brighter futures</h2>
-      </div>
-      <div class="col-right">
-        <p class="body-large">In Uganda, thousands of young people leave school without the opportunities, skills, or
-          support needed to secure meaningful livelihoods. Poverty, limited access to education, and unemployment
-          continue to hold back immense potential.</p>
-        <p>One Spark exists to change that reality by connecting youth to education, mentorship, vocational training,
-          and entrepreneurship opportunities that empower them to build brighter futures.</p>
-        <p>When a young person succeeds, families thrive, communities strengthen, and nations grow.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROGRAMS -->
-  <section id="programs">
-    <div class="container">
-      <span class="section-tag">What We Do</span>
-      <h2 class="section-title">Our Programs</h2>
-      <p class="section-intro">One Spark delivers a comprehensive set of interventions designed to equip youth with
-        education, practical skills, and pathways to sustainable livelihoods.</p>
-      <div class="programs-grid">
-
-        <div class="program-card" data-index="01">
-          <div class="program-number">01</div>
-          <h3>Scholarship &amp; Learning Support</h3>
-          <p>Provision of school supplies and scholarships to reduce financial barriers and expand access to education.
-            We cover tuition, registration, certification fees, textbooks, stationery, uniforms, and vocational
-            toolkits.</p>
+    <!-- Why One Spark -->
+    <div class="container why-block">
+      <div class="two-col">
+        <div class="col-left">
+          <span class="section-tag">Why One Spark?</span>
+          <h2 class="section-title">Connecting youth to brighter futures</h2>
         </div>
-
-        <div class="program-card" data-index="02">
-          <div class="program-number">02</div>
-          <h3>Tutoring &amp; Mentorship</h3>
-          <p>Structured after-school programs that strengthen academic performance and connect youth with mentors for
-            guidance, career advice, and personal development. Role models matter.</p>
+        <div class="col-right">
+          <p class="body-large">In Uganda, thousands of young people leave school without the opportunities, skills, or
+            support needed to secure meaningful livelihoods. Poverty, limited access to education, and unemployment
+            continue to hold back immense potential.</p>
+          <p>One Spark exists to change that reality by connecting youth to education, mentorship, vocational training,
+            and entrepreneurship opportunities that empower them to build brighter futures.</p>
+          <p>When a young person succeeds, families thrive, communities strengthen, and nations grow.</p>
         </div>
-
-        <div class="program-card" data-index="03">
-          <div class="program-number">03</div>
-          <h3>Vocational Training</h3>
-          <p>Hands-on workshops in market-relevant fields — tailoring, carpentry, ICT, agriculture, and mechanics —
-            ensuring alignment with local labour market demands.</p>
-        </div>
-
-        <div class="program-card" data-index="04">
-          <div class="program-number">04</div>
-          <h3>Life Skills &amp; Entrepreneurship</h3>
-          <p>Training sessions that build leadership, financial literacy, problem-solving, and entrepreneurial capacity
-            — preparing youth for both employment and self-employment.</p>
-        </div>
-
-        <div class="program-card" data-index="05">
-          <div class="program-number">05</div>
-          <h3>Community Learning Centres</h3>
-          <p>Accessible hubs where youth can receive training, mentorship, and resources in safe, supportive
-            environments. Rooted in the communities they serve.</p>
-        </div>
-
-        <div class="program-card" data-index="06">
-          <div class="program-number">06</div>
-          <h3>Monitoring &amp; Evaluation</h3>
-          <p>Robust systems to track progress, measure outcomes, and ensure accountability — enabling continuous
-            improvement and demonstrating long-term impact to partners and donors.</p>
-        </div>
-
-      </div>
-      <div class="section-footer reveal" style="margin-top: 4rem; text-align: center;">
-        <p style="margin-bottom: 2rem;">Discover more about our hands-on vocational workshops and impact.</p>
-        <a href="gallery.html" class="btn-outline">View Program Gallery</a>
       </div>
     </div>
   </section>
@@ -256,372 +195,6 @@
           <span class="tag">Orphans</span>
           <span class="tag">Economically disadvantaged youth</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- IMPLEMENTATION -->
-  <section id="implementation">
-    <div class="container">
-      <span class="section-tag">Implementation</span>
-      <h2 class="section-title">Pilot: Namugongo, Kampala</h2>
-      <p class="section-intro">The initiative launches with a pilot program in Namugongo, Kampala (Central Region),
-        serving as a model for replication and scale across Uganda.</p>
-      <div class="partners-grid">
-        <div class="partner-block">
-          <h4>Local Schools</h4>
-          <p>Student identification, academic support, and integration of mentorship programs.</p>
-        </div>
-        <div class="partner-block">
-          <h4>Vocational Institutes</h4>
-          <p>Hands-on training delivery aligned with labour market needs and industry standards.</p>
-        </div>
-        <div class="partner-block">
-          <h4>Community Leaders &amp; Business Groups</h4>
-          <p>Foster local engagement and promote entrepreneurship opportunities for graduates.</p>
-        </div>
-        <div class="partner-block">
-          <h4>Government Agencies &amp; NGOs</h4>
-          <p>Alignment with national policies and leveraging complementary resources for scale.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOVERNANCE -->
-  <section id="governance">
-    <div class="container">
-      <span class="section-tag">Governance</span>
-      <h2 class="section-title">Who's Behind One Spark</h2>
-
-      <!-- Founder / ED -->
-      <div class="governance-block">
-        <h3>Founder &amp; Executive Director</h3>
-        <div class="gov-card">
-          <!-- TODO: client to provide bios/photos -->
-          <div class="gov-placeholder-img">[Photo]</div>
-          <div class="gov-info">
-            <h4>[Name Placeholder]</h4>
-            <p class="gov-title">Executive Director</p>
-            <p>[Short bio placeholder. CLIENT TO PROVIDE CONTENT]</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Board Members -->
-      <div class="governance-block">
-        <h3>Board Members</h3>
-        <div class="gov-grid">
-          <!-- TODO: client to provide bios/photos -->
-          <div class="gov-card simple">
-            <h4>[Name Placeholder]</h4>
-            <p>[CLIENT TO PROVIDE CONTENT]</p>
-          </div>
-          <div class="gov-card simple">
-            <h4>[Name Placeholder]</h4>
-            <p>[CLIENT TO PROVIDE CONTENT]</p>
-          </div>
-          <div class="gov-card simple">
-            <h4>[Name Placeholder]</h4>
-            <p>[CLIENT TO PROVIDE CONTENT]</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Advisory Team -->
-      <div class="governance-block">
-        <h3>Advisory Team</h3>
-        <div class="gov-grid">
-          <!-- TODO: client to provide bios/photos -->
-          <div class="gov-card simple">
-            <h4>[Name Placeholder]</h4>
-            <p>[CLIENT TO PROVIDE CONTENT]</p>
-          </div>
-          <div class="gov-card simple">
-            <h4>[Name Placeholder]</h4>
-            <p>[CLIENT TO PROVIDE CONTENT]</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Key Volunteers -->
-      <div class="governance-block">
-        <h3>Key Volunteers</h3>
-        <div class="gov-grid">
-          <!-- TODO: client to provide bios/photos -->
-          <div class="gov-card simple">
-            <h4>[Name Placeholder]</h4>
-            <p>[CLIENT TO PROVIDE CONTENT]</p>
-          </div>
-          <div class="gov-card simple">
-            <h4>[Name Placeholder]</h4>
-            <p>[CLIENT TO PROVIDE CONTENT]</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Partners -->
-      <div class="governance-block">
-        <h3>Partnerships in Development</h3>
-        <div class="partner-logo-strip">
-          <!-- TODO: client to provide logos -->
-          <div class="logo-box">Partner Logo</div>
-          <div class="logo-box">Partner Logo</div>
-          <div class="logo-box">Partner Logo</div>
-          <div class="logo-box">Partner Logo</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- SUSTAINABILITY -->
-  <section id="sustainability">
-    <div class="container two-col reverse">
-      <div class="col-left">
-        <span class="section-tag">Long-Term Thinking</span>
-        <h2 class="section-title">Sustainability Plan</h2>
-        <div class="sustain-image-wrap">
-          <img src="Assets/Images/mech-1.jpeg" alt="Vocational Training Impact" class="sustain-image" />
-        </div>
-      </div>
-      <div class="col-right">
-        <div class="funding-timeline">
-          <div class="timeline-step">
-            <span class="tl-year">Year 1</span>
-            <span class="tl-desc">80% donor funded</span>
-          </div>
-          <div class="timeline-step">
-            <span class="tl-year">Year 3</span>
-            <span class="tl-desc">50% donor funded + social enterprises</span>
-          </div>
-          <div class="timeline-step">
-            <span class="tl-year">Year 5</span>
-            <span class="tl-desc">Locally sustained through partnerships and income-generating projects</span>
-          </div>
-        </div>
-
-        <div class="sustain-list">
-          <div class="sustain-item">
-            <h4>Income-Generating Projects</h4>
-            <p>Student-run enterprises designed to provide practical experience while generating revenue to support
-              program activities.</p>
-          </div>
-          <div class="sustain-item">
-            <h4>Community Ownership</h4>
-            <p>Active involvement of parents, local leaders, and youth in program delivery to strengthen accountability
-              and long-term sustainability.</p>
-          </div>
-          <div class="sustain-item">
-            <h4>Strategic Partnerships</h4>
-            <p>Collaboration with donors, corporate sponsors, and NGOs to secure financial and technical support over
-              the long term.</p>
-          </div>
-          <div class="sustain-item">
-            <h4>Capacity Building</h4>
-            <p>Training and development of local instructors and staff to ensure quality and reduce reliance on external
-              expertise.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BUDGET / TRANSPARENCY -->
-  <section id="budget">
-    <div class="container">
-      <span class="section-tag">Transparency</span>
-      <h2 class="section-title">Where your money goes</h2>
-      <p class="section-intro">Total annual budget: <strong>$100,000</strong>. Every dollar is tracked, reported, and
-        directed toward measurable impact.</p>
-      <div class="budget-table">
-        <div class="budget-row header">
-          <span>Budget Component</span>
-          <span>Annual Allocation</span>
-          <span>Share</span>
-        </div>
-        <div class="budget-row" data-pct="30">
-          <span>Educational Scholarships &amp; Materials</span>
-          <span class="budget-amount">$30,000</span>
-          <div class="budget-bar-wrap">
-            <div class="budget-bar" style="width:30%"></div><span class="budget-pct">30%</span>
-          </div>
-        </div>
-        <div class="budget-row" data-pct="25">
-          <span>Staff Salaries &amp; Volunteer Stipends</span>
-          <span class="budget-amount">$25,000</span>
-          <div class="budget-bar-wrap">
-            <div class="budget-bar" style="width:25%"></div><span class="budget-pct">25%</span>
-          </div>
-        </div>
-        <div class="budget-row" data-pct="20">
-          <span>Training Equipment &amp; Facilities</span>
-          <span class="budget-amount">$20,000</span>
-          <div class="budget-bar-wrap">
-            <div class="budget-bar" style="width:20%"></div><span class="budget-pct">20%</span>
-          </div>
-        </div>
-        <div class="budget-row" data-pct="15">
-          <span>Administrative &amp; Operational Costs</span>
-          <span class="budget-amount">$15,000</span>
-          <div class="budget-bar-wrap">
-            <div class="budget-bar" style="width:15%"></div><span class="budget-pct">15%</span>
-          </div>
-        </div>
-        <div class="budget-row" data-pct="10">
-          <span>Monitoring &amp; Evaluation (M&amp;E)</span>
-          <span class="budget-amount">$10,000</span>
-          <div class="budget-bar-wrap">
-            <div class="budget-bar" style="width:10%"></div><span class="budget-pct">10%</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Financial Accountability -->
-      <div class="accountability-block" style="margin-top: 4rem;">
-        <h3 style="font-family: 'Poppins', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">
-          Financial Accountability</h3>
-        <ul class="accountability-list"
-          style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; max-width: 800px; margin: 0 auto;">
-          <li
-            style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-card); padding: 0.8rem 1.5rem; border-radius: var(--border-radius-standard); border: 1px solid var(--border-color);">
-            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Annual financial reports</li>
-          <li
-            style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-card); padding: 0.8rem 1.5rem; border-radius: var(--border-radius-standard); border: 1px solid var(--border-color);">
-            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Independent audits</li>
-          <li
-            style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-card); padding: 0.8rem 1.5rem; border-radius: var(--border-radius-standard); border: 1px solid var(--border-color);">
-            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Impact reporting</li>
-          <li
-            style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-card); padding: 0.8rem 1.5rem; border-radius: var(--border-radius-standard); border: 1px solid var(--border-color);">
-            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Donor updates</li>
-          <li
-            style="display: flex; align-items: center; gap: 0.5rem; background: var(--bg-card); padding: 0.8rem 1.5rem; border-radius: var(--border-radius-standard); border: 1px solid var(--border-color);">
-            <span style="color: var(--accent-primary); font-weight: bold;">✓</span> Monitoring and Evaluation framework
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- GET INVOLVED -->
-  <section id="get-involved">
-    <div class="container">
-      <span class="section-tag">Take Action</span>
-      <h2 class="section-title">How you can help</h2>
-      <div class="involved-grid">
-        <div class="involved-card">
-          <h3>Partner With One Spark</h3>
-          <p>We seek institutional partners — companies, government agencies, and NGOs — who share our commitment to
-            youth development and inclusive growth in Uganda.</p>
-          <a href="#contact" class="btn-outline">Partner With One Spark</a>
-        </div>
-        <div class="involved-card">
-          <h3>Become a Mentor</h3>
-          <p>Bring your skills to our youth. Whether you're a professional, trainer, or simply passionate about giving
-            back — we have a place for you in our programs.</p>
-          <a href="#contact" class="btn-outline">Become a Mentor</a>
-        </div>
-        <div class="involved-card">
-          <h3>Sponsor a Student</h3>
-          <p>Help a young person aged 13–25 in Uganda access scholarships, mentorship, or vocational training by
-            covering their educational costs.</p>
-          <a href="#donate" class="btn-outline">Sponsor a Student</a>
-        </div>
-        <div class="involved-card">
-          <h3>Fund Vocational Training</h3>
-          <p>Support hands-on workshops in market-relevant fields, providing equipment, materials, and expert
-            instructors.</p>
-          <a href="#donate" class="btn-outline">Fund Vocational Training</a>
-        </div>
-        <div class="involved-card">
-          <h3>Support a Community Learning Centre</h3>
-          <p>Contribute to the development of accessible hubs where youth can receive training and resources in safe
-            environments.</p>
-          <a href="#donate" class="btn-outline">Support a Centre</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY YOUR SUPPORT MATTERS -->
-  <section id="why-support">
-    <div class="container">
-      <span class="section-tag light">Make a Difference</span>
-      <h2 class="section-title">Why Your Support Matters</h2>
-      <div class="support-grid">
-        <div class="support-tier">
-          <span class="tier-amount">$50</span>
-          <p>Can provide school supplies for a student.</p>
-        </div>
-        <div class="support-tier">
-          <span class="tier-amount">$200</span>
-          <p>Can sponsor vocational training.</p>
-        </div>
-        <div class="support-tier">
-          <span class="tier-amount">$500</span>
-          <p>Can support mentorship and entrepreneurship training for a young person.</p>
-        </div>
-        <div class="support-tier">
-          <span class="tier-amount">$1,000</span>
-          <p>Can equip an entire community learning workshop.</p>
-        </div>
-      </div>
-      <p class="support-closing">Every contribution helps create opportunities where they are needed most.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container two-col">
-      <div class="col-left">
-        <span class="section-tag">Reach Out</span>
-        <h2 class="section-title">Get in Touch</h2>
-        <p>Whether you're a prospective donor, partner, volunteer, or a young person interested in our programs — we'd
-          love to hear from you.</p>
-        <div class="contact-details">
-          <div class="contact-line">
-            <span class="contact-label">Location</span>
-            <span>Namugongo, Kampala, Uganda</span>
-          </div>
-          <div class="contact-line">
-            <span class="contact-label">Email</span>
-            <span>info@onespark.ug</span>
-          </div>
-          <div class="contact-line">
-            <span class="contact-label">Phone</span>
-            <span>+256 XXX XXX XXX</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-right">
-        <form class="contact-form" id="contact-form">
-          <div class="form-group">
-            <label for="c-name">Full Name</label>
-            <input type="text" id="c-name" placeholder="Your name" />
-          </div>
-          <div class="form-group">
-            <label for="c-email">Email</label>
-            <input type="email" id="c-email" placeholder="your@email.com" />
-          </div>
-          <div class="form-group">
-            <label for="c-interest">I'm interested in</label>
-            <select id="c-interest">
-              <option>Donating</option>
-              <option>Partnering</option>
-              <option>Volunteering / Mentoring</option>
-              <option>Applying to a program</option>
-              <option>Media / Press</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="c-message">Message</label>
-            <textarea id="c-message" rows="4" placeholder="Tell us about your interest..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Send Message</button>
-        </form>
       </div>
     </div>
   </section>
@@ -665,25 +238,25 @@
       <div class="footer-links">
         <div class="footer-col">
           <h5>Organization</h5>
-          <a href="#about">About Us</a>
-          <a href="#budget">Transparency</a>
+          <a href="index.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="team.html">Team</a>
           <a href="impact.html">Impact</a>
-          <a href="#governance">Governance</a>
         </div>
         <div class="footer-col">
           <h5>Programs</h5>
           <a href="gallery.html">Program Gallery</a>
-          <a href="#programs">Scholarships</a>
-          <a href="#programs">Vocational Training</a>
-          <a href="#programs">Mentorship</a>
-          <a href="#programs">Entrepreneurship</a>
+          <a href="programs.html#programs">Scholarships</a>
+          <a href="programs.html#programs">Vocational Training</a>
+          <a href="programs.html#programs">Mentorship</a>
+          <a href="programs.html#programs">Entrepreneurship</a>
         </div>
         <div class="footer-col">
           <h5>Get Involved</h5>
-          <a href="#donate">Donate</a>
-          <a href="#get-involved">Volunteer</a>
-          <a href="#get-involved">Partner</a>
-          <a href="#contact">Contact</a>
+          <a href="#" data-donate>Donate</a>
+          <a href="get-involved.html#get-involved">Volunteer</a>
+          <a href="get-involved.html#get-involved">Partner</a>
+          <a href="get-involved.html#contact">Contact</a>
         </div>
       </div>
     </div>

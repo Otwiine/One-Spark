@@ -223,14 +223,133 @@
 
   /* ---- SMOOTH SCROLL FOR ANCHOR LINKS ---- */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
+    // Skip donation triggers (they open the modal instead)
+    if (link.hasAttribute('data-donate')) return;
+
     link.addEventListener('click', (e) => {
-      const target = document.querySelector(link.getAttribute('href'));
+      const href = link.getAttribute('href');
+      const target = href.length > 1 ? document.querySelector(href) : null;
       if (target) {
         e.preventDefault();
         const offset = 64; // navbar height
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
       }
+    });
+  });
+
+  /* ---- DONATION MODAL (Sponsor a Student) ---- */
+  function initDonateModal() {
+    let modal = document.getElementById('donate-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'donate-modal';
+      modal.className = 'donate-modal';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-hidden', 'true');
+      modal.innerHTML =
+        '<div class="donate-modal-backdrop" data-donate-close></div>' +
+        '<div class="donate-modal-card">' +
+        '  <button class="donate-modal-close" data-donate-close aria-label="Close">&times;</button>' +
+        '  <h3 class="donate-modal-title">Sponsor a Student</h3>' +
+        '  <p class="donate-modal-sub">Support a young person through mobile money. Send your donation to either number below.</p>' +
+        '  <div class="donate-mno-grid">' +
+        '    <div class="donate-mno">' +
+        '      <span class="mno-logo airtel-logo">airtel</span>' +
+        '      <span class="mno-name">Airtel Money</span>' +
+        '      <span class="mno-number">+256 7XX XXX XXX</span>' +
+        '    </div>' +
+        '    <div class="donate-mno">' +
+        '      <span class="mno-logo mtn-logo">MTN</span>' +
+        '      <span class="mno-name">MTN MoMo</span>' +
+        '      <span class="mno-number">+256 7XX XXX XXX</span>' +
+        '    </div>' +
+        '  </div>' +
+        '  <p class="donate-modal-note">Thank you for your generosity &mdash; every shilling empowers a future.</p>' +
+        '</div>';
+      document.body.appendChild(modal);
+    }
+
+    const openModal = () => {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeModal = () => {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('[data-donate]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    modal.querySelectorAll('[data-donate-close]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  }
+  initDonateModal();
+
+  /* ---- SUBTLE HEADING ANIMATION ---- */
+  const headingEls = document.querySelectorAll(
+    '.hero-headline, .hero-sub, .section-tag, .section-title, .section-intro, .stat-bar-title'
+  );
+  headingEls.forEach(el => el.classList.add('anim-up'));
+
+  const headingObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          headingObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  headingEls.forEach(el => headingObserver.observe(el));
+
+  /* ---- HOPE DOODLE ART ---- */
+  const doodles = [
+    { cls: 'doodle--orange', svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42S7 32.5 7 20.5C7 14.5 11.5 10.5 16 10.5c3 0 5.5 1.8 8 4.5 2.5-2.7 5-4.5 8-4.5 4.5 0 9 4 9 10 0 12-17 21.5-17 21.5Z"/></svg>' },
+    { cls: 'doodle--green', svg: '<svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 42S15 32 15 20c0-6 5-10 10-10 3 0 5.5 1.8 7 4 1.5-2.2 4-4 7-4 5 0 10 4 10 10 0 12-17 22-17 22Z"/><path d="M5 26c-3 1.5-3 6.5 0 8.5 2 1.4 4.5 1 6-.5"/><path d="M59 26c3 1.5 3 6.5 0 8.5-2 1.4-4.5 1-6-.5"/></svg>' },
+    { cls: 'doodle--gold', svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26h30v12H9z"/><path d="M19 38v-6h10v6"/><path d="M7 26c0-6.5 6-10.5 17-13 11 2.5 17 6.5 17 13"/><path d="M24 17c-1.6-2.2-4.2-2.6-4.7-.7-.3 1.3.9 2.6 4.7 4.5 3.8-1.9 5-3.2 4.7-4.5-.5-1.9-3.1-1.5-4.7.7Z"/></svg>' },
+    { cls: 'doodle--orange', svg: '<svg viewBox="0 0 48 48" fill="currentColor"><path d="M24 5c1.4 10 6 14.6 16 16-10 1.4-14.6 6-16 16-1.4-10-6-14.6-16-16 10-1.4 14.6-6 16-16Z"/></svg>' },
+    { cls: 'doodle--green', svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42V26"/><path d="M24 33c0-8 6-13 13-13 0 8-6 13-13 13Z"/><path d="M24 27c0-6-5-11-11-11 0 6 5 11 11 11Z"/></svg>' },
+    { cls: 'doodle--gold', svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="24" cy="24" r="9"/><path d="M24 5v6M24 37v6M5 24h6M37 24h6M10.5 10.5l4.2 4.2M33.3 33.3l4.2 4.2M37.5 10.5l-4.2 4.2M14.7 33.3l-4.2 4.2"/></svg>' },
+    { cls: 'doodle--orange', svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M24 6l4.7 10.4L40 17l-8.4 7.6 2.4 11.4L24 30.6 14 36l2.4-11.4L8 17l11.3-.6z"/></svg>' },
+    { cls: 'doodle--green', svg: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 36c0-12 7-20 16-20s16 8 16 20"/><path d="M14 36c0-8 5-14 10-14s10 6 10 14"/><path d="M20 36c0-4 2-7 4-7s4 3 4 7"/></svg>' }
+  ];
+
+  const doodlePositions = [
+    { pos: 'doodle--left', w: '92px', h: '92px' },
+    { pos: 'doodle--right-top', w: '64px', h: '64px' },
+    { pos: 'doodle--left-bottom', w: '72px', h: '72px' }
+  ];
+
+  document.querySelectorAll('section:not(#hero), .gallery-hero').forEach((target, i) => {
+    doodlePositions.forEach((p, j) => {
+      const doodle = doodles[(i * doodlePositions.length + j) % doodles.length];
+      const el = document.createElement('span');
+      el.className = 'doodle ' + doodle.cls + ' ' + p.pos;
+      el.setAttribute('aria-hidden', 'true');
+      el.innerHTML = doodle.svg;
+      el.style.width = p.w;
+      el.style.height = p.h;
+      el.style.animationDelay = (j * 0.9) + 's';
+      el.style.animationDuration = (6 + (j % 3)) + 's';
+      target.appendChild(el);
     });
   });
 

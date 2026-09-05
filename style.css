@@ -15,6 +15,7 @@
   --text-muted: #546E7A;        /* Muted Blue Grey — labels/subtitles */
   --text-main: #263238;         /* Alias for body text */
   --accent-primary: #0F9D58;    /* Emerald Green — CTAs / Primary highlights */
+  --accent-btn: #7fda57;         /* Bright Leaf Green — button backgrounds */
   --accent-secondary: #F57C00;  /* Sunrise Orange — hover states / Secondary highlights */
   --accent-highlight: #FFC107;  /* Warm Gold — Decorative details */
   --text-on-accent: #FFFFFF;    /* White text on primary buttons */
@@ -155,6 +156,32 @@ section:nth-of-type(even) {
   grid-gap: 2.5rem;
 }
 
+/* Implementation partners — 4 tiles on one line */
+.partners-grid {
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+}
+
+.partner-block {
+  padding: 1.5rem;
+}
+
+.partner-block h4 {
+  font-size: 1.05rem;
+}
+
+@media (max-width: 991px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .partners-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* --- Cards & Blocks (30% Fill) --- */
 .program-card,
 .partner-block,
@@ -204,10 +231,15 @@ section:nth-of-type(even) {
 }
 
 .nav-logo {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--text-heading);
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.nav-logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -227,7 +259,7 @@ section:nth-of-type(even) {
 }
 
 .nav-cta {
-  background-color: var(--accent-primary);
+  background-color: var(--accent-btn);
   color: var(--text-on-accent);
   padding: 0.8rem 1.8rem;
   border-radius: var(--border-radius-standard);
@@ -277,7 +309,7 @@ section:nth-of-type(even) {
 }
 
 .mobile-menu .mobile-cta {
-  background-color: var(--accent-primary);
+  background-color: var(--accent-btn);
   color: var(--text-on-accent);
   padding: 0.8rem 1.8rem;
   border-radius: var(--border-radius-standard);
@@ -411,7 +443,7 @@ section:nth-of-type(even) {
 }
 
 .btn-primary {
-  background-color: var(--accent-primary);
+  background-color: var(--accent-btn);
   color: var(--text-on-accent);
 }
 
@@ -438,7 +470,7 @@ section:nth-of-type(even) {
 
 .btn-outline:hover {
   transform: translateY(-4px);
-  background-color: var(--accent-primary);
+  background-color: var(--accent-btn);
   color: var(--text-on-accent);
 }
 
@@ -517,6 +549,14 @@ section:nth-of-type(even) {
 
 #about .mission-box {
   margin-top: 2rem;
+}
+
+/* Seamless continuation sub-block (Why One Spark inside About) */
+.why-block,
+.support-block {
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .about-stats {
@@ -627,7 +667,7 @@ section:nth-of-type(even) {
 }
 
 .tag:hover {
-  background-color: var(--accent-primary);
+  background-color: var(--accent-btn);
   color: var(--text-on-accent);
   transform: translateY(-2px);
 }
@@ -811,7 +851,7 @@ section:nth-of-type(even) {
 
 .amount-btn:hover,
 .amount-btn.active {
-  background-color: var(--accent-primary);
+  background-color: var(--accent-btn);
   color: var(--text-on-accent);
 }
 
@@ -844,7 +884,7 @@ section:nth-of-type(even) {
 }
 
 .btn-donate {
-  background-color: var(--accent-primary);
+  background-color: var(--accent-btn);
   color: var(--text-on-accent);
 }
 
@@ -1014,6 +1054,18 @@ section:nth-of-type(even) {
   padding-bottom: 5rem;
   text-align: center;
   background-color: var(--bg-card);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.gallery-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(250, 250, 245, 0.72);
+  z-index: 0;
 }
 
 .gallery-grid {
@@ -1071,7 +1123,7 @@ section:nth-of-type(even) {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background-color: var(--accent-primary);
+  background-color: var(--accent-btn);
   color: var(--text-on-accent);
   padding: 1rem 2rem;
   border-radius: var(--border-radius-standard);
@@ -1361,5 +1413,213 @@ section:nth-of-type(even) {
   .sustain-list {
     grid-template-columns: 1fr;
   }
+}
+
+/* --- Donation Modal (Sponsor a Student) --- */
+.donate-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.donate-modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.donate-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(38, 50, 56, 0.55);
+}
+
+.donate-modal-card {
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-standard);
+  max-width: 520px;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  transform: translateY(20px) scale(0.98);
+  transition: var(--transition-smooth);
+}
+
+.donate-modal.open .donate-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.donate-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem 0.6rem;
+}
+
+.donate-modal-close:hover {
+  color: var(--text-heading);
+}
+
+.donate-modal-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.donate-modal-sub {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.donate-mno-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.donate-mno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-standard);
+  background-color: var(--bg-canvas);
+}
+
+.mno-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 44px;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.airtel-logo {
+  background-color: #E40000;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  text-transform: lowercase;
+}
+
+.mtn-logo {
+  background-color: #FFCB05;
+  color: #002D62;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+}
+
+.mno-name {
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.mno-number {
+  font-family: 'DM Mono', monospace;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.donate-modal-note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 540px) {
+  .donate-mno-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Heading Reveal Animation --- */
+.anim-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.anim-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title.anim-up,
+.hero-headline.anim-up,
+.stat-bar-title.anim-up {
+  transition-delay: 0.06s;
+}
+
+.section-intro.anim-up,
+.hero-sub.anim-up {
+  transition-delay: 0.14s;
+}
+
+/* --- Hope Doodle Art --- */
+body {
+  overflow-x: hidden;
+}
+
+section,
+.gallery-hero {
+  position: relative;
+}
+
+section > .container,
+.gallery-hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.doodle {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  animation: doodle-float 8s ease-in-out infinite;
+}
+
+.doodle svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.doodle--green { color: var(--accent-primary); }
+.doodle--orange { color: var(--accent-secondary); }
+.doodle--gold { color: var(--accent-highlight); }
+
+.doodle--left { left: 4%; top: 14%; }
+.doodle--right { right: 4%; bottom: 13%; }
+.doodle--right-top { right: 5%; top: 13%; }
+.doodle--left-bottom { left: 5%; bottom: 15%; }
+
+@keyframes doodle-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-9px) rotate(3deg); }
+}
+
+@media (max-width: 960px) {
+  .doodle { display: none; }
 }
 
